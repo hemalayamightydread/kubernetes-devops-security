@@ -23,7 +23,7 @@ pipeline {
           steps {
               sh 'printenv'
               sh 'docker build -t 11261980/numeric-app:""$GIT_COMMIT"" .'
-              sh 'docker push 11261980/numeric-app:""$IGT_COMMIT""'
+              sh 'docker push 11261980/numeric-app:v1.0'
              }
           }   
     }
