@@ -20,11 +20,14 @@ pipeline {
             }
            }
       stage('Docker Build and Push') {
-          steps {
+          steps{
+             withDockerRegistry([credentialsId: "docker_id", url: ""])
+             {
               sh 'printenv'
               sh 'docker build -t 11261980/hemalaya:""$GIT_COMMIT"" .'
               sh 'docker push 11261980/hemalaya:""$GIT_COMMIT""'
              }
           }   
     }
+  }
 }
